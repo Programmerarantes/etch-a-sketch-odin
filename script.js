@@ -44,17 +44,40 @@ function createBoard(size) {
 function getSize() {
     let input = prompt("Write the size of the board: ")
     let message = document.querySelector("#message")
-    if (input == "") {
-        message.innerHTML = "Please provide a number"
-    } else if (input > 100 || input < 0) {
-        message.innerHtml = "The size should be between 1 and 100"
+    if (isNaN(input)) {
+        message.innerHTML = "Only positive numbers between 1 and 100"
+        console.log(input)
+    } else if (input < 0 || input > 100) {
+        message.innerHTML = "Provide a number between 1 and 100"
+        console.log(input)
     } else {
+        message.innerHTML = "Get Ready"
+        console.log(input)
         return input
     }
-     
-    /*else {
-        message.innerHTML = "Get Ready!";
-        return input;
+    
+    /* for(input = 0; input <=0 || input > 100; input) {
+        alert("Please provide a postive number")
+        input = prompt("Write the size of the board: ")
+        message.innerHTML = "Let's go"
+        if (input == "") {
+            alert("Please write a number between 0 and 100")
+            input = prompt("Write the size of the board: ")
+        } 
+        else {
+            message.innerHTML = "Get Ready"
+    
+        }
+        return input
+    } */
+    /*if (input <= 0) {
+        alert("Please provide a postive number")
+        input = prompt("Write the size of the board: ")
+    } else if (input < 0 && input > 100) {
+        message.innerHtml = "The size should be between 1 and 100"
+    } else {
+        message.innerHTML = "Get Ready!"
+        return input
     }*/
 }
 
