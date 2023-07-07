@@ -11,12 +11,18 @@ body {
     flex-direction: column;
 }
 .header {
-    display: flex;
-    flex-direction: row;
+    display: grid;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 400px;
     padding: 20px;
+}
+
+#popup {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 5px 50px;
 }
 .footer {
     display: flex;
@@ -31,4 +37,32 @@ body {
     height: 500px;
     border: 1px solid black;
     border-radius: 2px;
+}
+
+.btn-black {
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    background: black;
+    border-color: white;
+    border-radius: 5px;
+}
+
+.btn-random {
+    padding: 5px 15px;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),            
+                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),            
+                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+}
+
+.btn-reset {
+    padding: 3px 12px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bold;
 }

@@ -1,6 +1,21 @@
 let color = "black"
+let click = false
+
 document.addEventListener("DOMContentLoaded", function(){
     createBoard(16)
+
+    document.querySelector("body").addEventListener("click", function(e) {
+        if(e.target.tagName != "BUTTON ") {
+            click = !click
+            let draw = document.querySelector("#draw")
+            if(click) {
+                draw.innerHTML = "Let's draw!"
+            }
+            else {
+                draw.innerHTML = "Click to continue"
+            }
+        }
+    })
 
     let btnPopup = document.querySelector("#popup") 
     btnPopup.addEventListener("click", function() {
@@ -27,26 +42,30 @@ function createBoard(size) {
 }
 //creating a function to get the size and check it
 function getSize() {
-    let input = prompt("Write the size of the board: ");
-    let message = document.querySelector("#message");
+    let input = prompt("Write the size of the board: ")
+    let message = document.querySelector("#message")
     if (input == "") {
-        message.innerHTML = "Please provide a number";
-    } 
-    else if (input < 0 || input > 100) {
-        message.innerHtml = "The size should be between 1 and 100";
-    } 
-    else {
+        message.innerHTML = "Please provide a number"
+    } else if (input > 100 || input < 0) {
+        message.innerHtml = "The size should be between 1 and 100"
+    } else {
+        return input
+    }
+     
+    /*else {
         message.innerHTML = "Get Ready!";
         return input;
-    }
+    }*/
 }
 
 function colorDiv() {
-    if(color == "random") {
-        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50% )`
-    } else {
-        this.style.backgroundColor = 'black'
-    }
+    if (click){
+        if(color == "random") {
+            this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50% )`
+        } else {
+            this.style.backgroundColor = 'black'
+        }
+    }    
 }
 
 function setColor(colorChoice) {
